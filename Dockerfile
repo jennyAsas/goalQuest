@@ -1,5 +1,4 @@
 FROM tangramor/nginx-php8-fpm:php8.4.4_withoutNodejs
-
 WORKDIR /var/www/html
 COPY . /var/www/html
 
