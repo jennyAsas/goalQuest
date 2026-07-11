@@ -7,9 +7,8 @@ RUN composer dump-autoload --optimize --no-dev
 
 FROM php:8.4-cli-alpine
 
-RUN apk add --no-cache postgresql-dev libzip-dev \
+RUN apk add --no-cache postgresql-dev libzip-dev oniguruma-dev \
  && docker-php-ext-install pdo pdo_pgsql mbstring bcmath zip
-
 WORKDIR /var/www/html
 COPY --from=vendor /app /var/www/html
 
