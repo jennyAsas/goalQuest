@@ -1,4 +1,4 @@
-FROM tangramor/nginx-php8-fpm:php8.4.1_node21.7.2
+FROM tangramor/nginx-php8-fpm:php8.4_node21.7.2
 
 WORKDIR /var/www/html
 COPY . /var/www/html
