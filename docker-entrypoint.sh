@@ -13,5 +13,5 @@ php artisan view:cache
 echo "Running migrations..."
 php artisan migrate --force
 
-echo "Starting server..."
-exec /start.sh
+echo "Starting server on port ${PORT:-10000}..."
+exec php artisan serve --host=0.0.0.0 --port=${PORT:-10000}
