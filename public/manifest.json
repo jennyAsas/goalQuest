@@ -1,0 +1,17 @@
+{
+    "name": "GoalQuest",
+    "short_name": "GoalQuest",
+    "description": "Track goals, streaks, and savings targets in a classical quest log.",
+    "start_url": "/dashboard",
+    "scope": "/",
+    "display": "standalone",
+    "background_color": "#241511",
+    "theme_color": "#241511",
+    "orientation": "portrait",
+    "icons": [
+      { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+      { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+      { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+      { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+    ]
+  }
