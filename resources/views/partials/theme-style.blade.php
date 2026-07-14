@@ -267,4 +267,47 @@
         padding: 24px;
         margin-bottom: 20px;
     }
+
+    .log-history {
+        background: var(--bg-panel-2);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 10px 12px;
+        margin-top: 10px;
+        max-height: 280px;
+        overflow-y: auto;
+    }
+
+    .log-entry {
+        border-bottom: 1px dashed var(--border);
+        padding: 8px 0;
+        font-size: 13px;
+    }
+
+    .log-entry:last-child {
+        border-bottom: none;
+    }
+
+    .log-date {
+        color: var(--gold-soft);
+        font-weight: 600;
+        font-family: 'Cinzel', serif;
+        font-size: 11.5px;
+    }
+
+    .log-progress {
+        margin-left: 8px;
+        color: var(--parchment);
+    }
+
+    .log-mood {
+        margin-left: 8px;
+        font-size: 15px;
+    }
+
+    .log-note {
+        margin: 4px 0 0;
+        font-style: italic;
+        color: var(--text-muted);
+    }
 </style>

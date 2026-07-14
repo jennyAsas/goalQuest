@@ -170,10 +170,21 @@
 
                     <label>How are you feeling about it?</label>
                     <div class="moodrow">
-                        @foreach (['content', 'driven', 'calm', 'weary', 'weighed'] as $m)
+                        @php
+                            $moodEmoji = [
+                                'content' => '🏰',
+                                'driven' => '⚔️',
+                                'calm' => '🌙',
+                                'weary' => '🕯️',
+                                'weighed' => '⚖️',
+                            ];
+                        @endphp
+                        @foreach ($moodEmoji as $m => $emoji)
                             <button type="button" class="moodbtn"
                                 :class="mood === '{{ $m }}' ? 'sel' : ''"
-                                @click="mood = '{{ $m }}'">{{ ucfirst($m) }}</button>
+                                @click="mood = '{{ $m }}'">
+                                <span style="font-size:16px;">{{ $emoji }}</span> {{ ucfirst($m) }}
+                            </button>
                         @endforeach
                     </div>
                     <input type="hidden" name="mood" x-model="mood">
