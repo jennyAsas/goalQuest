@@ -6,7 +6,10 @@
         activeGoalId: null,
         activeGoalIsFinance: false,
         formOpen: false,
-        catFinance: false
+        catFinance: false,
+        mood: null,
+        delta: 10,
+        amount: ''
     }">
 
         <header class="top">
@@ -127,15 +130,20 @@
         <div class="modal-overlay" x-show="logOpen" x-cloak style="display:none">
             <div class="modal" @click.outside="logOpen = false">
                 <h3>Log progress</h3>
-                <form method="POST" :action="'/goals/' + activeGoalId + '/checkin'" x-data="{ mood: null, delta: 10, amount: '' }">
+                <form method="POST" :action="'/goals/' + activeGoalId + '/checkin'">
                     @csrf
                     <template x-if="!activeGoalIsFinance">
                         <div>
                             <label>How much progress?</label>
                             <div class="quickbtns">
-                                <button type="button" class="btn btn-ghost btn-sm" @click="delta = 10">+10%</button>
-                                <button type="button" class="btn btn-ghost btn-sm" @click="delta = 25">+25%</button>
-                                <button type="button" class="btn btn-ghost btn-sm" @click="delta = 100">Complete
+                                <button type="button" class="btn btn-sm"
+                                    :class="delta === 10 ? 'btn-primary' : 'btn-ghost'"
+                                    @click="delta = 10">+10%</button>
+                                <button type="button" class="btn btn-sm"
+                                    :class="delta === 25 ? 'btn-primary' : 'btn-ghost'"
+                                    @click="delta = 25">+25%</button>
+                                <button type="button" class="btn btn-sm"
+                                    :class="delta === 100 ? 'btn-primary' : 'btn-ghost'" @click="delta = 100">Complete
                                     it</button>
                             </div>
                             <input type="hidden" name="progress_delta" :value="delta">
@@ -145,9 +153,15 @@
                         <div>
                             <label>How much are you adding?</label>
                             <div class="quickbtns">
-                                <button type="button" class="btn btn-ghost btn-sm" @click="amount = 25">+$25</button>
-                                <button type="button" class="btn btn-ghost btn-sm" @click="amount = 100">+$100</button>
-                                <button type="button" class="btn btn-ghost btn-sm" @click="amount = 500">+$500</button>
+                                <button type="button" class="btn btn-sm"
+                                    :class="amount == 25 ? 'btn-primary' : 'btn-ghost'"
+                                    @click="amount = 25">+$25</button>
+                                <button type="button" class="btn btn-sm"
+                                    :class="amount == 100 ? 'btn-primary' : 'btn-ghost'"
+                                    @click="amount = 100">+$100</button>
+                                <button type="button" class="btn btn-sm"
+                                    :class="amount == 500 ? 'btn-primary' : 'btn-ghost'"
+                                    @click="amount = 500">+$500</button>
                             </div>
                             <input type="number" step="0.01" name="amount" x-model="amount"
                                 placeholder="Custom amount">

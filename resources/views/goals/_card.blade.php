@@ -62,7 +62,7 @@
     <div class="cardbtns">
         @if ($goal->status === 'active')
             <button class="btn btn-primary btn-sm"
-                @click="logOpen = true; activeGoalId = {{ $goal->id }}; activeGoalIsFinance = {{ $goal->isFinance() ? 'true' : 'false' }}">
+                @click="logOpen = true; activeGoalId = {{ $goal->id }}; activeGoalIsFinance = {{ $goal->isFinance() ? 'true' : 'false' }}; mood = null; delta = 10; amount = ''">
                 Log progress
             </button>
             <button class="btn btn-ghost btn-sm" @click="viewLogOpen = true; activeGoalId = {{ $goal->id }}">
