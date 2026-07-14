@@ -62,8 +62,7 @@
                     <div><label>Title</label><input name="title" required></div>
                     <div>
                         <label>Category</label>
-                        <select name="category" x-model="catFinance"
-                            @change="catFinance = $event.target.value === 'Finance'">
+                        <select name="category" @change="catFinance = $event.target.value === 'Finance'">
                             <option>Health</option>
                             <option>Career</option>
                             <option>Learning</option>
